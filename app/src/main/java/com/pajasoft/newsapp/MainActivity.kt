@@ -1,5 +1,6 @@
 package com.pajasoft.newsapp
 
+
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -159,11 +160,7 @@ fun NewsApp(innerPadding: PaddingValues) {
         OutlinedTextField(
             value = "",
             onValueChange = {},
-            placeholder = {
-                Text(
-                    text = "Buscar"
-                )
-            },
+            placeholder = { Text(text = "Buscar") },
             leadingIcon = {
                 Icon(
                     imageVector = Icons.Default.Home,
@@ -175,14 +172,14 @@ fun NewsApp(innerPadding: PaddingValues) {
                 .fillMaxWidth()
                 .padding(top = 10.dp, bottom = 10.dp)
         )
+
         Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 10.dp)
         ) {
             Column(
-                modifier = Modifier
-                    .weight(1f),
+                modifier = Modifier.weight(1f),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
@@ -190,7 +187,6 @@ fun NewsApp(innerPadding: PaddingValues) {
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
                     color = Color.Black
-
                 )
                 Box(
                     modifier = Modifier
@@ -212,7 +208,6 @@ fun NewsApp(innerPadding: PaddingValues) {
                     color = Color.Gray,
                 )
             }
-
             Column(
                 modifier = Modifier.weight(1f),
                 horizontalAlignment = Alignment.CenterHorizontally
@@ -224,30 +219,34 @@ fun NewsApp(innerPadding: PaddingValues) {
                     color = Color.Gray,
                 )
             }
-                Text(
-                    text = "Ultimas Noticias",
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 25.sp,
-                    modifier = Modifier
-                        .padding(top = 15.dp, bottom = 10.dp)
-                )
-                LazyRow {
-                    items(newsList) { noticias ->
-                        NewsCard(noticia = noticias)
+        }
 
-                    }
-                }
-                Text(
-                    text = "Alrededor del mundo",
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 20.sp,
-                    modifier = Modifier
-                        .padding(top = 15.dp, bottom = 10.dp)
-                )
+
+        Text(
+            text = "Ultimas Noticias",
+            fontWeight = FontWeight.Bold,
+            fontSize = 25.sp,
+            modifier = Modifier
+                .padding(top = 15.dp, bottom = 10.dp)
+        )
+
+        LazyRow {
+            items(newsList) { noticias ->
+                NewsCard(noticia = noticias)
             }
+        }
+
+        Text(
+            text = "Alrededor del mundo",
+            fontWeight = FontWeight.Bold,
+            fontSize = 20.sp,
+            modifier = Modifier
+                .padding(top = 15.dp, bottom = 10.dp)
+        )
 
         LazyVerticalGrid(
-            columns = GridCells.Fixed(2)
+            columns = GridCells.Fixed(2),
+            modifier = Modifier.fillMaxSize()
         ) {
             items(newsList) { noticias ->
                 CardImg(noticia = noticias)
