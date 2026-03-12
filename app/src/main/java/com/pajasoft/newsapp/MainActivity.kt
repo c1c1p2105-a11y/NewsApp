@@ -223,6 +223,7 @@ fun NewsApp(innerPadding: PaddingValues) {
                     fontWeight = FontWeight.Normal,
                     color = Color.Gray,
                 )
+            }
                 Text(
                     text = "Ultimas Noticias",
                     fontWeight = FontWeight.Bold,
@@ -244,7 +245,7 @@ fun NewsApp(innerPadding: PaddingValues) {
                         .padding(top = 15.dp, bottom = 10.dp)
                 )
             }
-        }
+
         LazyVerticalGrid(
             columns = GridCells.Fixed(2)
         ) {
